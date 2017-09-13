@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+  h1 Grupos
+  ul
+    - for(let g of groups)
+      li
+        strong= g.name

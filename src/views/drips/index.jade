@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+  h1= drip.title
+  p= drip.summary
+  div
+    form(method="post", action="xyz")
+      p
+        label(for="name") Nombre
+        input(type="text", name="name")
+      p
+        label(for="ammount") Monto
+        input(type="number", name="ammount")
+      p
+        label(for="tags") Etiquetas
+        input(type="text", name="tags")
+      p
+        label(for="category") Categoria
+        input(type="text", name="category")
+      p
+        label(for="direction") dirección
+        select(name="direction")
+          option(value="entry") Ingreso
+          option(value="drip") Egreso
+      p
+        input(type="submit" value="Guardar")
+  div
+    if drip.drips === null 
+      p No hay drips registrados
+  table
+    tr
+      th= name
+      th= ammount
+      th= timestamp
+      th= tags
+      th= who
+      th= category
+      th= direction
+    - for (let dp in drip.drips)
+      tr
+        td= name
+        td= ammount
+        td= timestamp
+        td= tags
+        td= who
+        td= category
+        td= direction
+        

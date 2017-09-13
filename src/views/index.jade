@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  p Welcome
+  ul
+    li 
+      strong Usuarios:
+    - for (let user of users)
+      li
+        strong= user.username
+        span= ` -> ${user.name} ${user.last_name}`
+        a(href="/user/#{user.username}") Drips
+  hr
+  p
+    strong Grupos
+  form(method="post", action="/group")
+    div
+      label(for="name") Nombre
+      input(type="text", name="name")
+    div
+      label(for="summary") Descripción
+      input(type="text", name="summary")
+    div
+      label(for="member") Usuario
+      select(name="member")
+        - for (let user of users)
+          option(value="#{user._id}")= user.username
+    div
+      input(type="submit", value="guardar")
