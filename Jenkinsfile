@@ -22,7 +22,7 @@ pipeline {
     }
     stage('Inscripcion en seccion de admision') {
       steps {
-        sh 'echo hola'
+        sh 'sadsafs safasf fsaf'
       }
     }
     stage('Servicios Web') {
